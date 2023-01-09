@@ -1,5 +1,6 @@
 #include "Map.h"
-
+//dibujo del mapa
+//Desarrollo 
 Map::Map()
 {
 	storedmap = new MAP_TILES[Size];
@@ -28,6 +29,8 @@ Map::Map()
 	int x = 0;
 	int y = 0;
 	char tile = ' ';
+
+	//movimiento personaje
 	for (size_t i = 0; i < Size; i++)
 	{
 		x = i % Width;
@@ -54,6 +57,7 @@ Map::Map()
 			break;
 		}
 	}
+	//color mapa/puntos
 	foregrounds[MAP_TILES::MAP_EMPTY] = ConsoleUtils::CONSOLE_COLOR::BLACK;
 	foregrounds[MAP_TILES::MAP_WALL] = ConsoleUtils::CONSOLE_COLOR::DARK_BLUE;
 	foregrounds[MAP_TILES::MAP_POINT] = ConsoleUtils::CONSOLE_COLOR::DARK_YELLOW;
@@ -61,12 +65,12 @@ Map::Map()
 	backgrounds[MAP_TILES::MAP_WALL] = ConsoleUtils::CONSOLE_COLOR::DARK_BLUE;
 	backgrounds[MAP_TILES::MAP_POINT] = ConsoleUtils::CONSOLE_COLOR::BLACK;
 }
-
+//Destructor
 Map::~Map()
 {
 	delete[] storedmap;
 }
-
+//diseño mapa
 void Map::Draw()
 {
 	for (size_t i = 0; i < Size; i++)
